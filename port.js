@@ -1,4 +1,3 @@
-import http from "http";
 
 const port = Number(process.env.PORT) || 3000;
 

@@ -12,6 +12,8 @@ import fs from 'fs';
 import path from "path";
 import { fileURLToPath } from "url";
 
+import http from "http";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -103,3 +105,23 @@ client.on(Events.ClientReady, readyClient => {
 });
 
 client.login(TOKEN);
+
+const port = Number(process.env.PORT) || 3000;
+
+http.createServer((req, res) => {
+  if (req.url === "/health") {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    return res.end("OK");
+  }
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end("Hunger Games bot alive\n");
+}).listen(port, "0.0.0.0", () => {
+  console.log(`HTTP health server listening on ${port}`);
+});
+
+process.on("unhandledRejection", (err) => {
+  console.error("Unhandled Rejection:", err);
+});
+process.on("uncaughtException", (err) => {
+  console.error("Uncaught Exception:", err);
+});
