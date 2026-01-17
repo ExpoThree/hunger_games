@@ -5,11 +5,11 @@ A Discord bot used for managing Hunger Games event registrations, conducted by m
 ## Setup
 
 1. **Install dependencies:**
-   npm install discord.js dotenv
+   `npm install discord.js dotenv`
 
 2. **Initialize data file:**
    Create `data.json` in the root folder with:
-   { "names": [] }
+   `{ "names": [] }`
 
 3. **Configure environment:**
    Create `.env` file with:
@@ -21,7 +21,7 @@ A Discord bot used for managing Hunger Games event registrations, conducted by m
    ```
 
 4. **Run:**
-   node index.js
+   `node index.js`
 
 ## Commands
 
